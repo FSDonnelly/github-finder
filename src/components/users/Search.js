@@ -9,8 +9,9 @@ class Search extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+    this.props.searchUsers(this.state.text);
 
-    console.log(this.state.text);
+    this.setState({ text: '' });
   };
 
   render() {
