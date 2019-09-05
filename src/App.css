@@ -40,6 +40,9 @@ img {
   width: 100%;
 }
 
+i {
+  padding: 5px;
+}
 /* Utilities */
 .container {
   max-width: 1100px;
@@ -374,10 +377,6 @@ table th {
 
 .navbar .welcome span {
   margin-right: 0.6rem;
-}
-
-.navbar i {
-  padding: 5px;
 }
 
 /* Mobile Styles */
