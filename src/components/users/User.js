@@ -90,7 +90,7 @@ class User extends Component {
               <li>
                 {blog && (
                   <Fragment>
-                    <strong>Website: </strong> {blog}
+                    <strong>Website: </strong> <a href={blog}>{blog}</a>
                   </Fragment>
                 )}
               </li>
