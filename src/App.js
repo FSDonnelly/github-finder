@@ -21,17 +21,6 @@ const App = () => {
   const [alert, setAlert] = useState(null);
 
   // Search Github Users
-  const searchUsers = async text => {
-    setLoading(true);
-
-    const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
-    const clientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
-    const res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&client_id=${clientId}&client_secret=${clientSecret}`
-    );
-    setUsers(res.data.items);
-    setLoading(false);
-  };
 
   // Get a single Github user
   const getUser = async username => {
@@ -85,7 +74,6 @@ const App = () => {
                 render={props => (
                   <Fragment>
                     <Search
-                      searchUsers={searchUsers}
                       clearUsers={clearUsers}
                       showClear={users.length > 0 ? true : false}
                       setAlert={showAlert}
