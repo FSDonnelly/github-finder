@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import axios from 'axios';
 
 import Navbar from './components/layout/Navbar';
 import Alert from './components/layout/Alert';
@@ -14,8 +13,6 @@ import GithubState from './context/github/GithubState';
 import './App.css';
 
 const App = () => {
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
 
   // Search Github Users
@@ -23,17 +20,7 @@ const App = () => {
   // Get a single Github user
 
   // Get users repos
-  const getUserRepos = async username => {
-    setLoading(true);
 
-    const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
-    const clientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
-    const res = await axios.get(
-      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${clientId}&client_secret=${clientSecret}`
-    );
-    setRepos(res.data);
-    setLoading(false);
-  };
   // Clear users from state
 
   // Set alert if no search term
@@ -62,18 +49,7 @@ const App = () => {
                 )}
               />
               <Route exact path='/about' component={About} />
-              <Route
-                exact
-                path='/user/:login'
-                render={props => (
-                  <User
-                    {...props}
-                    getUserRepos={getUserRepos}
-                    repos={repos}
-                    loading={loading}
-                  />
-                )}
-              />
+              <Route exact path='/user/:login' component={User} />
             </Switch>
           </div>
         </div>

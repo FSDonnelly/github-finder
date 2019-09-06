@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import GithubContext from '../../context/github/githubContext';
-import Users from './Users';
 
 const Search = ({ setAlert }) => {
   const { users, clearUsers, searchUsers } = useContext(GithubContext);
