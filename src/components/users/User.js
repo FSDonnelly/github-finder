@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import Repos from '../repos/Repos';
 
-const User = ({ loading, getUser, getUserRepos, repos, match, user }) => {
+const User = ({ getUser, getUserRepos, loading, repos, match, user }) => {
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
