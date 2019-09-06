@@ -9,7 +9,8 @@ const User = ({ getUser, getUserRepos, loading, repos, match, user }) => {
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
-  }, [getUser, getUserRepos, match.params.login]);
+    // eslint-disable-next-line
+  }, []);
 
   const {
     name,
